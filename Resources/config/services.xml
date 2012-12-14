@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <parameters>
+        <parameter key="jessegreathouse.yfrog.client.service.class">Jessegreathouse\Yfrog\YfrogClient</parameter>
+    </parameters>
+
+    <services>
+        <service id="jessegreathouse.yfrog.client.service" class="%jessegreathouse.yfrog.client.service.class%">
+            <argument>%yfrog_user%</argument>
+            <argument>%yfrog_password%</argument>
+            <argument>%yfrog_api_key%</argument>
+        </service>
+        <service id="yfrog" alias="jessegreathouse.yfrog.client.service" />
+    </services>
+</container>
